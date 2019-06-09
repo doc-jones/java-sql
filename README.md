@@ -24,6 +24,9 @@ WHERE city = 'London'`
 
 ### find all customers with postal code 1010. Returns 3 customers.
 > This can be done with SELECT and WHERE clauses
+> `SELECT * 
+FROM [Customers]
+WHERE PostalCode = '1010'`
 
 ### find the phone number for the supplier with the id 11. Should be (010) 9984510.
 > This can be done with SELECT and WHERE clauses
