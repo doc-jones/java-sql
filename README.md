@@ -18,7 +18,7 @@ Answer the following data queries. Keep track of the SQL you write by pasting it
 
 ### find all customers that live in London. Returns 6 records.
 > This can be done with SELECT and WHERE clauses
-> `SELECT CustomerName 
+> `SELECT * 
 FROM [Customers]
 WHERE city = 'London'`
 
