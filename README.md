@@ -66,7 +66,11 @@ SET PostalCode = 11122
 WHERE ContactName = 'Bilbo Baggins'  
 
 ### list orders grouped by customer showing the number of orders per customer. _Rattlesnake Canyon Grocery_ should have 7 orders.
-> This can be done with SELECT, COUNT, JOIN and GROUP BY clauses. Your count should focus on a field in the Orders table, not the Customer table
+> This can be done with SELECT, COUNT, JOIN and GROUP BY clauses. Your count should focus on a field in the Orders table, not the Customer table  
+SELECT COUNT(o.OrderID), c.CustomerName  
+FROM customers c JOIN orders o  
+ON c.CustomerID = o.CustomerID  
+GROUP BY c.CustomerName  
 
 > There is more information about the COUNT clause on [W3 Schools](https://www.w3schools.com/sql/sql_count_avg_sum.asp)
 
