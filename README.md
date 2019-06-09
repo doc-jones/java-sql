@@ -48,6 +48,9 @@ WHERE length(SupplierName) > 20
 
 ### find all customers that include the word "market" in the name. Should return 4 records.
 > This can be done with SELECT and a WHERE clause using the LIKE keyword
+SELECT *  
+FROM [Customers]  
+WHERE CustomerName LIKE '%market%'  
 
 > Don't forget the wildcard '%' symbols at the beginning and end of your substring to denote it can appear anywhere in the string in question
 
