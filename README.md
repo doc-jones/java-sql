@@ -83,7 +83,12 @@ GROUP BY c.CustomerName
 ORDER BY Orders DESC  
 
 ### list orders grouped by customer's city showing number of orders per city. Returns 58 Records with _Aachen_ showing 2 orders and _Albuquerque_ showing 7 orders.
-> This is very similar to the previous two queries, however, it focuses on the City rather than the CustomerName
+> This is very similar to the previous two queries, however, it focuses on the City rather than the CustomerName  
+SELECT COUNT(o.OrderID) as Orders, c.City as City  
+FROM Orders o JOIN Customers c  
+ON o.CustomerID = c.CustomerID  
+GROUP BY City  
+ORDER BY Orders  
 
 ### delete all customers that have no orders. Should delete 17 (or 18 if you haven't deleted the record added) records.
 > This is done with a DELETE query
