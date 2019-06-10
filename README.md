@@ -121,4 +121,35 @@ ORDER BY Orders
 - constraints
   - the `id` should be the primary key for the table.
   - account `name` should be unique.
-  - account `budget` is required.
+  - account `budget` is required.  
+  
+-- Table: public.accounts  
+  
+-- DROP TABLE public.accounts;  
+  
+CREATE TABLE public.accounts  
+(  
+    id integer NOT NULL DEFAULT nextval('accounts_id_seq'::regclass),  
+    name character varying COLLATE pg_catalog."default" NOT NULL,  
+    budget double precision NOT NULL,  
+    CONSTRAINT accounts_pkey PRIMARY KEY (id),  
+    CONSTRAINT "NameUnq" UNIQUE (name)  
+,  
+    CONSTRAINT budgetchk CHECK (budget > 0::double precision)  
+)  
+WITH (  
+    OIDS = FALSE  
+)  
+TABLESPACE pg_default;  
+  
+ALTER TABLE public.accounts  
+    OWNER to postgres;  
+  
+-- Index: nameindex  
+  
+-- DROP INDEX public.nameindex;  
+  
+CREATE INDEX nameindex  
+    ON public.accounts USING btree  
+    (name COLLATE pg_catalog."default")  
+    TABLESPACE pg_default;  
